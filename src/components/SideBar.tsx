@@ -1,10 +1,10 @@
 import * as mui from "@mui/material";
-import myimages from "../Assets/sreedhar.png"
+// import myimages from "../Assets/sreedhar.png"
 function SideBar() {
 
     return (
         <>
-            <mui.Grid container spacing={0}>
+            {/* <mui.Grid container spacing={0}>
                 <mui.Grid item xs={2}>
                     <mui.Card sx={{ height: "93vh", width: "350px", backgroundColor: "#000000", color: "#C0C0C0", border: '2px dashed #0087F7' }}>
                         <mui.Grid container spacing={0} sx={{ flexDirection: "column", mt: 2, pl: 3 }}>
@@ -43,7 +43,7 @@ function SideBar() {
                         </mui.Grid>
                     </mui.Card>
                 </mui.Grid>
-            </mui.Grid>
+            </mui.Grid> */}
         </>
     )
 }
