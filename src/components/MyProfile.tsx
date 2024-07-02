@@ -108,15 +108,11 @@ function MyProfile() {
             </mui.Grid>
             <mui.Grid container spacing={2} sx={{ width: '100%', maxWidth: '1200px', mt: 1 }}>
                 <mui.Grid item xs={12} md={8}>
-                    <mui.Stack flexDirection={"column"}>
+                    <mui.Stack spacing={3} flexDirection={"column"}>
                         <mui.Typography color={"#090939"} fontWeight={"bold"}>— MY BACKGROUND</mui.Typography>
-                        &nbsp;
                         <mui.Typography fontSize={"20px"} color={"#191D26"}>Over the 1+ years, I've developed my skills to become a flexible developer with expertise in front-end development.</mui.Typography>
-                        &nbsp;
                         <mui.Typography fontSize={"20px"} color={"#191D26"}>On the front-end side, I've had the opportunity to work extensively with React.js, a powerful JavaScript library for building user interfaces.</mui.Typography>
-                        &nbsp;
                         <mui.Typography fontSize={"20px"} color={"#191D26"}>As a full stack developer, I've involved into the back-end world, too. I've worked with various technologies such as Node.js, Spring boot, Python, and databases like MongoDB and PostgreSQL to develop robust server-side applications. I'm experienced in designing APIs, implementing authentication and authorization mechanisms, and optimizing server performance for optimal user experiences.</mui.Typography>
-                        &nbsp;
                         <mui.Typography fontSize={"20px"} color={"#191D26"}>Throughout my career, I've collaborated with cross-functional teams, participated in agile development methodologies, and have a commitment to continuous learning. I'm always eager to stay up-to-date with the latest technologies and best practices in the rapidly evolving field of web development.</mui.Typography>
                     </mui.Stack>
                 </mui.Grid>
