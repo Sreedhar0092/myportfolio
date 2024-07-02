@@ -6,7 +6,7 @@ function SideBar() {
         <>
             <mui.Grid container spacing={0}>
                 <mui.Grid item xs={2}>
-                    <mui.Card sx={{ height: "93vh", width: "350px", backgroundColor: "#000000", color: "#FFFFFF", border: '2px dashed #0087F7' }}>
+                    <mui.Card sx={{ height: "93vh", width: "350px", backgroundColor: "#000000", color: "#C0C0C0", border: '2px dashed #0087F7' }}>
                         <mui.Grid container spacing={0} sx={{ flexDirection: "column", mt: 2, pl: 3 }}>
                             <mui.Grid item xs={10} sx={{ display: "flex", justifyContent: "center", alignItems: "center", }} >
                                 <img src={myimages.src} width={200}>
@@ -14,7 +14,7 @@ function SideBar() {
                             </mui.Grid>
                             &nbsp;
                             <mui.Grid item xs={10} sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                <mui.Typography sx={{ textAlign: "center" }}>SREEDHAR A</mui.Typography>
+                                <mui.Typography sx={{ textAlign: "center",fontWeight: "bold" }}>SREEDHAR A</mui.Typography>
                             </mui.Grid>
                             &nbsp;
                             <mui.Grid item xs={10} sx={{ display: "flex", justifyContent: "start", alignItems: "start", }}>

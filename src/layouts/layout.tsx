@@ -11,7 +11,7 @@ function Layouts({ children }: LayoutProps) {
     return (
         <>
             <mui.Grid container spacing={0}>
-                <mui.Grid item xs={12}>
+                {/* <mui.Grid item xs={12}>
                     <Header></Header>
                 </mui.Grid>
                 <aside>
@@ -21,7 +21,12 @@ function Layouts({ children }: LayoutProps) {
                 </aside>
                 <main>
                     <MyProfile></MyProfile>
-                </main>
+                </main> */}
+                <mui.Grid item xs={12}>
+                    <MyProfile>
+
+                    </MyProfile>
+                </mui.Grid>
                 {children}
             </mui.Grid>
         </>
