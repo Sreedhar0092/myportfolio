@@ -66,7 +66,7 @@ function MyProfile() {
             <mui.Grid container spacing={2} sx={{
                 width: '100%',
                 maxWidth: '1200px',
-                mt: 6,
+                mt: 9,
             }}>
                 <mui.Grid item xs={5.5}>
                     <mui.Typography variant="h4" component="h1" gutterBottom fontWeight={"bold"}>
@@ -106,7 +106,7 @@ function MyProfile() {
                     </mui.Card>
                 </mui.Grid>
             </mui.Grid>
-            <mui.Grid container spacing={2} sx={{ width: '100%', maxWidth: '1200px', mt: 1 }}>
+            <mui.Grid container spacing={2} sx={{ width: '100%', maxWidth: '1200px', mt: 10 }}>
                 <mui.Grid item xs={12} md={8}>
                     <mui.Stack spacing={3} flexDirection={"column"}>
                         <mui.Typography color={"#090939"} fontWeight={"bold"}>— MY BACKGROUND</mui.Typography>
