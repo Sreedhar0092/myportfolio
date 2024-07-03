@@ -316,7 +316,7 @@ function MyProfile() {
                         <mui.Stack flexDirection={"column"} spacing={1} mt={2}>
                             <mui.Typography color={"#FFFFFF"} fontSize={"18px"}  >― CONTACTS</mui.Typography>
                             <mui.Typography color={"#FFFFFF"} fontSize={"18px"} ><a href="mailto:sreedhar0092@gmail.com" style={{ color: "#FFFFFF" }} >sreedhar0092@gmail.com</a></mui.Typography>
-                            <mui.Typography color={"#FFFFFF"} fontSize={"18px"} ><a style={{ color: "#FFFFFF" }} >739708288</a></mui.Typography>
+                            <mui.Typography color={"#FFFFFF"} fontSize={"18px"} ><a style={{ color: "#FFFFFF" }} >7397087288</a></mui.Typography>
                         </mui.Stack>
                     </mui.Grid>
                 </mui.Grid>
