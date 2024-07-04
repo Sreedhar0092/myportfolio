@@ -73,7 +73,7 @@ function MyProfile() {
     const scrollToName = () => {
         if (nameRef.current) {
             nameRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            window.history.replaceState(null, '', '#contacts');
+            window.history.replaceState(null, '', '');
         }
     };
 
