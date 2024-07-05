@@ -73,7 +73,7 @@ function MyProfile() {
     const scrollToName = () => {
         if (nameRef.current) {
             nameRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            window.history.replaceState(null, '', '');
+            window.history.replaceState(null, '', '#');
         }
     };
 
@@ -201,10 +201,14 @@ function MyProfile() {
                     <mui.Grid item xs={12} md={8} >
                         <mui.Stack spacing={3} flexDirection={"column"}  >
                             <mui.Typography color={"#191D26"} fontWeight={"bold"}>— MY BACKGROUND</mui.Typography>
-                            <mui.Typography fontSize={"18px"} color={"#191D26"}>Over the 1+ years, I've developed my skills to become a flexible developer with expertise in front-end development.</mui.Typography>
-                            <mui.Typography fontSize={"18px"} color={"#191D26"}>On the front-end side, I've had the opportunity to work extensively with React.js, a powerful JavaScript library for building user interfaces.</mui.Typography>
-                            <mui.Typography fontSize={"18px"} color={"#191D26"}>As a front-end developer, I've focused on creating dynamic and responsive user interfaces using React.js. I've worked extensively with modern JavaScript frameworks, CSS-in-JS solutions, and tools like TypeScript and Material-UI to build seamless and intuitive user experiences. I have a keen eye for design and user experience, ensuring that applications are not only functional but also visually appealing. My experience includes integrating APIs, managing state effectively, and optimizing front-end performance for fast and smooth user interactions.</mui.Typography>
-                            <mui.Typography fontSize={"18px"} color={"#191D26"}>Throughout my career, I've collaborated with cross-functional teams, participated in agile development methodologies, and have a commitment to continuous learning. I'm always eager to stay up-to-date with the latest technologies and best practices in the rapidly evolving field of web development.</mui.Typography>
+                            {/* <mui.Typography fontSize={"18px"} color={"#191D26"}>{"Over the 1+ years, I've developed my skills to become a flexible developer with expertise in front-end development."}</mui.Typography>
+                            <mui.Typography fontSize={"18px"} color={"#191D26"}>{"On the front-end side, I've had the opportunity to work extensively with React.js, a powerful JavaScript library for building user interfaces."}</mui.Typography>
+                            <mui.Typography fontSize={"18px"} color={"#191D26"}>{"As a front-end developer, I've focused on creating dynamic and responsive user interfaces using React.js. I've worked extensively with modern JavaScript frameworks, CSS-in-JS solutions, and tools like TypeScript and Material-UI to build seamless and intuitive user experiences. I have a keen eye for design and user experience, ensuring that applications are not only functional but also visually appealing. My experience includes integrating APIs, managing state effectively, and optimizing front-end performance for fast and smooth user interactions."}</mui.Typography>
+                            <mui.Typography fontSize={"18px"} color={"#191D26"}>{"Throughout my career, I've collaborated with cross-functional teams, participated in agile development methodologies, and have a commitment to continuous learning. I'm always eager to stay up-to-date with the latest technologies and best practices in the rapidly evolving field of web development."}</mui.Typography> */}
+                            <mui.Typography fontSize={"18px"} color={"#191D26"}>Over the 1+ years, I&apos;ve developed my skills to become a flexible developer with expertise in front-end development.</mui.Typography>
+                            <mui.Typography fontSize={"18px"} color={"#191D26"}>On the front-end side, I&apos;ve had the opportunity to work extensively with React.js, a powerful JavaScript library for building user interfaces.</mui.Typography>
+                            <mui.Typography fontSize={"18px"} color={"#191D26"}>As a front-end developer, I&apos;ve focused on creating dynamic and responsive user interfaces using React.js. I&apos;ve worked extensively with modern JavaScript frameworks, CSS-in-JS solutions, and tools like TypeScript and Material-UI to build seamless and intuitive user experiences. I have a keen eye for design and user experience, ensuring that applications are not only functional but also visually appealing. My experience includes integrating APIs, managing state effectively, and optimizing front-end performance for fast and smooth user interactions.</mui.Typography>
+                            <mui.Typography fontSize={"18px"} color={"#191D26"}>Throughout my career, I&apos;ve collaborated with cross-functional teams, participated in agile development methodologies, and have a commitment to continuous learning. I&apos;m always eager to stay up-to-date with the latest technologies and best practices in the rapidly evolving field of web development.</mui.Typography>
                         </mui.Stack>
                     </mui.Grid>
                     <mui.Grid item xs={12} md={4}>
