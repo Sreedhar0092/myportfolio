@@ -1,4 +1,5 @@
 import * as mui from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
 import Sreedharimages from "../Assets/sreedhar.png"
 import myImages from "../Assets/sreedhar-removebg.png"
 import { useEffect, useState, useRef } from "react";
@@ -6,6 +7,8 @@ function MyProfile() {
 
     // Email Me Function //
     const [isScrolled, setIsScrolled] = useState(false);
+    const [open, setOpen] = useState(false); // State for controlling the menu drawer
+    const isSmallScreen = mui.useMediaQuery('(max-width:917px)');
     const backgroundRef: any = useRef(null);
     const experienceRef: any = useRef(null);
     const projectRef: any = useRef(null);
@@ -99,22 +102,29 @@ function MyProfile() {
         scrollToName();
     };
 
-
+    const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
+        if (ref.current) {
+            ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+    const handleNavigationClick = (event: React.MouseEvent, ref: React.RefObject<HTMLElement>) => {
+        event.preventDefault();
+        scrollToSection(ref);
+        setOpen(false); // Close the drawer when an item is clicked
+    };
 
     return (
         <>
             <mui.Box
                 sx={{
                     minHeight: '100vh',
-                    width: '100vw',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     // justifyContent: 'center',
-                    background: 'linear-gradient(to bottom, #ADD8E6 30%, #FFFFFF 70%)',
+                    background: 'linear-gradient(to bottom, #E0E0E0 25%, #FFFFFF 25%)',
                     // background: 'linear-gradient(to bottom, #ADD8E6 26%, #FFFFFF 26%)',
                     color: '#000000',
-                    // overflowX:'hidden',
                     boxSizing: 'border-box',
 
                 }}
@@ -125,33 +135,62 @@ function MyProfile() {
                         width: '100%',
                         position: 'sticky',
                         top: 0,
-                        backgroundColor: isScrolled ? '#ADD8E6' : 'transparent',
+                        backgroundColor: isScrolled ? '#E0E0E0' : 'transparent',
                         zIndex: 1,
                         boxShadow: 'none',
                         transition: 'background-color 0.3s, box-shadow 0.3s',
                         padding: '10px 0',
                         pl: 10,
                         boxSizing: 'border-box',
+
                     }}
                 >
-                    <mui.Grid container spacing={2} sx={{ width: '100%', maxWidth: '1300px', margin: 'auto', padding: "auto" }}>
-                        <mui.Grid item xs={1} md={1.5} lg={1.5} xl={1} >
-                            <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleNameClick(e) }}>sreedhar</mui.Typography>
+                    {isSmallScreen ? (
+                        <mui.Box sx={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 2 }}>
+                            <mui.IconButton onClick={() => setOpen(true)}>
+                                <MenuIcon />
+                            </mui.IconButton>
+                        </mui.Box>
+                    ) : (
+                        <mui.Grid container spacing={2} sx={{ width: '100%', maxWidth: '1300px', margin: 'auto', padding: "auto" }}>
+                            <mui.Grid item xs={1} sm={1.5} md={1.5} lg={1.5} xl={1} >
+                                <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleNameClick(e) }}>sreedhar</mui.Typography>
+                            </mui.Grid>
+                            <mui.Grid item xs={1.5} sm={3} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }}>
+                                <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleAboutMeClick(e) }}>ABOUT ME</mui.Typography>
+                            </mui.Grid>
+                            <mui.Grid item xs={1.5} sm={3} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }} >
+                                <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleExperienceClick(e) }}>EXPERIENCE</mui.Typography>
+                            </mui.Grid>
+                            <mui.Grid item xs={1.5} sm={2} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }} >
+                                <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleProjectClick(e) }}>PROJECT</mui.Typography>
+                            </mui.Grid>
+                            <mui.Grid item xs={1.5} sm={2} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }} >
+                                <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleContactClick(e) }}>CONTACTS</mui.Typography>
+                            </mui.Grid>
                         </mui.Grid>
-                        <mui.Grid item xs={1.5} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }}>
-                            <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleAboutMeClick(e) }}>ABOUT ME</mui.Typography>
-                        </mui.Grid>
-                        <mui.Grid item xs={1.5} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }} >
-                            <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleExperienceClick(e) }}>EXPERIENCE</mui.Typography>
-                        </mui.Grid>
-                        <mui.Grid item xs={1.5} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }} >
-                            <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleProjectClick(e) }}>PROJECT</mui.Typography>
-                        </mui.Grid>
-                        <mui.Grid item xs={1.5} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }} >
-                            <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleContactClick(e) }}>CONTACTS</mui.Typography>
-                        </mui.Grid>
-                    </mui.Grid>
+                    )}
                 </mui.Box>
+                <mui.Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
+                    <mui.List>
+                        {/* <mui.ListItem button onClick={(e) => handleNavigationClick(e, nameRef)}>
+                            <mui.ListItemText primary="sreedhar" />
+                        </mui.ListItem> */}
+                        <mui.ListItem button onClick={(e) => handleNavigationClick(e, backgroundRef)}>
+                            <mui.ListItemText primary="ABOUT ME" />
+                        </mui.ListItem>
+                        <mui.ListItem button onClick={(e) => handleNavigationClick(e, experienceRef)}>
+                            <mui.ListItemText primary="EXPERIENCE" />
+                        </mui.ListItem>
+                        <mui.ListItem button onClick={(e) => handleNavigationClick(e, projectRef)}>
+                            <mui.ListItemText primary="PROJECT" />
+                        </mui.ListItem>
+                        <mui.ListItem button onClick={(e) => handleNavigationClick(e, contactRef)}>
+                            <mui.ListItemText primary="CONTACTS" />
+                        </mui.ListItem>
+                    </mui.List>
+                </mui.Drawer>
+
                 <mui.Grid container spacing={2} sx={{
                     width: '100%',
                     maxWidth: '1200px',
@@ -212,17 +251,17 @@ function MyProfile() {
                     </mui.Grid>
                     <mui.Grid item xs={12} md={4}>
                         <mui.Stack spacing={1}>
-                            <mui.Typography color={"#191D26"} fontWeight={"bold"} pl={8} >— SKILLS</mui.Typography>
-                            <mui.Typography fontSize={"18px"} color={"#191D26"} pl={12}>HTML</mui.Typography>
-                            <mui.Typography fontSize={"18px"} color={"#191D26"} pl={12}>CSS</mui.Typography>
-                            <mui.Typography fontSize={"18px"} color={"#191D26"} pl={12}>React JS</mui.Typography>
-                            <mui.Typography fontSize={"18px"} color={"#191D26"} pl={12}>NEXT JS</mui.Typography>
-                            <mui.Typography fontSize={"18px"} color={"#191D26"} pl={12}>JavaScript</mui.Typography>
-                            <mui.Typography fontSize={"18px"} color={"#191D26"} pl={12}>Node JS</mui.Typography>
-                            <mui.Typography fontSize={"18px"} color={"#191D26"} pl={12}>My Sql</mui.Typography>
-                            <mui.Typography fontSize={"18px"} color={"#191D26"} pl={12}>Postman</mui.Typography>
-                            <mui.Typography fontSize={"18px"} color={"#191D26"} pl={12}>Git</mui.Typography>
-                            <mui.Typography fontSize={"18px"} color={"#191D26"} pl={12}>Material UI</mui.Typography>
+                            <mui.Typography color={"#191D26"} fontWeight={"bold"} pl={12} >— SKILLS</mui.Typography>
+                            <mui.Typography fontSize={"15px"} color={"#191D26"} pl={12}>HTML</mui.Typography>
+                            <mui.Typography fontSize={"15px"} color={"#191D26"} pl={12}>CSS</mui.Typography>
+                            <mui.Typography fontSize={"15px"} color={"#191D26"} pl={12}>React JS</mui.Typography>
+                            <mui.Typography fontSize={"15px"} color={"#191D26"} pl={12}>NEXT JS</mui.Typography>
+                            <mui.Typography fontSize={"15px"} color={"#191D26"} pl={12}>JavaScript</mui.Typography>
+                            <mui.Typography fontSize={"15px"} color={"#191D26"} pl={12}>Node JS</mui.Typography>
+                            <mui.Typography fontSize={"15px"} color={"#191D26"} pl={12}>My Sql</mui.Typography>
+                            <mui.Typography fontSize={"15px"} color={"#191D26"} pl={12}>Postman</mui.Typography>
+                            <mui.Typography fontSize={"15px"} color={"#191D26"} pl={12}>Git</mui.Typography>
+                            <mui.Typography fontSize={"15px"} color={"#191D26"} pl={12}>Material UI</mui.Typography>
                         </mui.Stack>
                     </mui.Grid>
                 </mui.Grid>
