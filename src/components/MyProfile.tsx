@@ -106,6 +106,7 @@ function MyProfile() {
             <mui.Box
                 sx={{
                     minHeight: '100vh',
+                    width: '100vw',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -113,13 +114,12 @@ function MyProfile() {
                     background: 'linear-gradient(to bottom, #ADD8E6 30%, #FFFFFF 70%)',
                     // background: 'linear-gradient(to bottom, #ADD8E6 26%, #FFFFFF 26%)',
                     color: '#000000',
+                    // overflowX:'hidden',
+                    boxSizing: 'border-box',
 
-                    width: '100%',
                 }}
             >
-                <mui.Grid ref={nameRef}>
-
-                </mui.Grid>
+                <mui.Grid ref={nameRef}></mui.Grid>
                 <mui.Box
                     sx={{
                         width: '100%',
@@ -130,23 +130,24 @@ function MyProfile() {
                         boxShadow: 'none',
                         transition: 'background-color 0.3s, box-shadow 0.3s',
                         padding: '10px 0',
-                        pl: 10
+                        pl: 10,
+                        boxSizing: 'border-box',
                     }}
                 >
                     <mui.Grid container spacing={2} sx={{ width: '100%', maxWidth: '1300px', margin: 'auto', padding: "auto" }}>
-                        <mui.Grid item xs={1} >
+                        <mui.Grid item xs={1} md={1.5} lg={1.5} xl={1} >
                             <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleNameClick(e) }}>sreedhar</mui.Typography>
                         </mui.Grid>
-                        <mui.Grid item xs={1.5} sx={{ color: "#565594" }}>
+                        <mui.Grid item xs={1.5} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }}>
                             <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleAboutMeClick(e) }}>ABOUT ME</mui.Typography>
                         </mui.Grid>
-                        <mui.Grid item xs={1.5} sx={{ color: "#565594" }} >
+                        <mui.Grid item xs={1.5} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }} >
                             <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleExperienceClick(e) }}>EXPERIENCE</mui.Typography>
                         </mui.Grid>
-                        <mui.Grid item xs={1.5} sx={{ color: "#565594" }} >
+                        <mui.Grid item xs={1.5} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }} >
                             <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleProjectClick(e) }}>PROJECT</mui.Typography>
                         </mui.Grid>
-                        <mui.Grid item xs={1.5} sx={{ color: "#565594" }} >
+                        <mui.Grid item xs={1.5} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }} >
                             <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleContactClick(e) }}>CONTACTS</mui.Typography>
                         </mui.Grid>
                     </mui.Grid>
@@ -156,7 +157,7 @@ function MyProfile() {
                     maxWidth: '1200px',
                     mt: 6,
                 }}>
-                    <mui.Grid item xs={5.5}>
+                    <mui.Grid item xs={5.5} md={5.5} lg={5.5}>
                         <mui.Typography variant="h4" component="h1" gutterBottom fontWeight={"bold"}>
                             Hi, I am Sreedhar, a Front End Developer
                         </mui.Typography>
@@ -194,9 +195,7 @@ function MyProfile() {
                         </mui.Card>
                     </mui.Grid>
                 </mui.Grid>
-                <mui.Grid ref={backgroundRef}>
-
-                </mui.Grid>
+                <mui.Grid ref={backgroundRef}> </mui.Grid>
                 <mui.Grid container spacing={2} sx={{ width: '100%', maxWidth: '1200px', mt: 10 }} >
                     <mui.Grid item xs={12} md={8} >
                         <mui.Stack spacing={3} flexDirection={"column"}  >
@@ -223,9 +222,7 @@ function MyProfile() {
                         </mui.Stack>
                     </mui.Grid>
                 </mui.Grid>
-                <mui.Grid ref={experienceRef}>
-
-                </mui.Grid>
+                <mui.Grid ref={experienceRef}></mui.Grid>
                 <mui.Grid container spacing={2} sx={{ width: '100%', maxWidth: '1200px', mt: 8 }}>
                     <mui.Grid item xs={12} md={5}>
                         <mui.Typography color={"#191D26"} fontWeight={"bold"}>― WORK EXPERIENCE</mui.Typography>
@@ -259,16 +256,14 @@ function MyProfile() {
                         </mui.Stack>
                     </mui.Grid>
                 </mui.Grid>
-                <mui.Grid ref={projectRef}>
-
-                </mui.Grid>
+                <mui.Grid ref={projectRef}></mui.Grid>
                 <mui.Grid container spacing={2} sx={{ width: '100%', maxWidth: '1200px', mt: 8 }}>
                     <mui.Grid item xs={12} md={5}>
                         <mui.Typography color={"#191D26"} fontWeight={"bold"} variant="h2">Projects</mui.Typography>
                     </mui.Grid>
                     <mui.Grid item xs={12} md={7} >
                         <mui.Stack spacing={2} mt={2}>
-                            <mui.Typography color={"#7B88A8"} fontSize={"18px"}  >― REACT/ SPRING BOOT/ MONGO DB</mui.Typography>
+                            <mui.Typography color={"#7B88A8"} fontSize={"18px"}  >― REACT / MONGO DB</mui.Typography>
                             <mui.Typography color={"#191D26"} fontSize={"18px"} >This Billpay application was built using SQL for the database, Node.js for the backend, and React for the frontend. The project emphasizes a clear distinction between client-side and server-side code, ensuring a separation of concerns. By implementing this loosely coupled architecture, the two parts—implemented using different technologies—can evolve in parallel and independently from one another.</mui.Typography>
                         </mui.Stack>
                     </mui.Grid>
@@ -286,9 +281,7 @@ function MyProfile() {
             </mui.Grid> */}
             </mui.Box>
             &nbsp;
-            <mui.Grid ref={contactRef}>
-
-            </mui.Grid>
+            <mui.Grid ref={contactRef}></mui.Grid>
             <mui.Box
                 sx={{
                     minHeight: '30vh',
@@ -303,17 +296,17 @@ function MyProfile() {
                 }}
             >
                 <mui.Grid container spacing={2} sx={{ width: '100%', maxWidth: '1200px', mt: 4, bgcolor: "#5D5CA1" }}>
-                    <mui.Grid item xs={12} md={7}>
+                    <mui.Grid item xs={12} md={4} xl={7}>
                         <mui.Typography color={"#FFFFFF"} fontWeight={"bold"} variant="h3">Sreedhar</mui.Typography>
                     </mui.Grid>
-                    <mui.Grid item xs={12} md={2.5}  >
+                    <mui.Grid item xs={12} md={4} lg={4} xl={2.5}>
                         <mui.Stack flexDirection={"column"} spacing={1} mt={2}>
                             <mui.Typography color={"#FFFFFF"} fontSize={"18px"}  >― SOCIALS</mui.Typography>
                             <mui.Typography color={"#FFFFFF"} fontSize={"18px"} ><a href="mailto:sreedhar0092@gmail.com" style={{ color: "#FFFFFF" }} >Linkedin</a></mui.Typography>
                         </mui.Stack>
                     </mui.Grid>
-                    <mui.Grid item xs={12} md={2.5}  >
-                        <mui.Stack flexDirection={"column"} spacing={1} mt={2}>
+                    <mui.Grid item xs={12} md={4} lg={4} xl={2.5} >
+                        <mui.Stack flexDirection={"column"} spacing={1} mt={1.2}>
                             <mui.Typography color={"#FFFFFF"} fontSize={"18px"}  >― CONTACTS</mui.Typography>
                             <mui.Typography color={"#FFFFFF"} fontSize={"18px"} ><a href="mailto:sreedhar0092@gmail.com" style={{ color: "#FFFFFF" }} >sreedhar0092@gmail.com</a></mui.Typography>
                             <mui.Typography color={"#FFFFFF"} fontSize={"18px"} ><a style={{ color: "#FFFFFF" }} >7397087288</a></mui.Typography>
