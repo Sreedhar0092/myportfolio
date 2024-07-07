@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.11.5",
     "@eslint/config-array": "^0.17.0",
     "@eslint/object-schema": "^2.1.4",
+    "@mui/icons-material": "^5.16.0",
     "@mui/material": "^5.15.21",
     "glob": "^10.4.2",
     "grid": "^4.10.8",
