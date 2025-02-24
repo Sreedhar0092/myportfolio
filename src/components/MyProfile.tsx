@@ -3,6 +3,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Sreedharimages from "../Assets/sreedhar.png"
 import myImages from "../Assets/sreedhar-removebg.png"
 import { useEffect, useState, useRef } from "react";
+import { styled } from "@mui/material/styles";
+import { Linkedin } from "lucide-react";
+
 function MyProfile() {
 
     // Email Me Function //
@@ -14,6 +17,20 @@ function MyProfile() {
     const projectRef: any = useRef(null);
     const contactRef: any = useRef(null)
     const nameRef: any = useRef(null)
+
+    const text = "Front End Developer";
+
+    // Styled component for animation
+    const AnimatedLetter = styled("span")(({ theme }) => ({
+        display: "inline-block",
+        opacity: 0,
+        transform: "translateY(10px)",
+        animation: "fadeInUp 0.5s forwards",
+        "@keyframes fadeInUp": {
+            "0%": { opacity: 0, transform: "translateY(10px)" },
+            "100%": { opacity: 1, transform: "translateY(0)" },
+        },
+    }));
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0) {
@@ -135,12 +152,13 @@ function MyProfile() {
                         width: '100%',
                         position: 'sticky',
                         top: 0,
-                        backgroundColor: isScrolled ? '#E0E0E0' : 'transparent',
+                        backgroundColor: isScrolled ? '#202020' : '#202020',
+                        color: "#E0E0E0",
                         zIndex: 1,
                         boxShadow: 'none',
                         transition: 'background-color 0.3s, box-shadow 0.3s',
                         padding: '10px 0',
-                        pl: 10,
+                        pl: 2,
                         boxSizing: 'border-box',
 
                     }}
@@ -152,11 +170,19 @@ function MyProfile() {
                             </mui.IconButton>
                         </mui.Box>
                     ) : (
-                        <mui.Grid container spacing={2} sx={{ width: '100%', maxWidth: '1300px', margin: 'auto', padding: "auto" }}>
-                            <mui.Grid item xs={1} sm={1.5} md={1.5} lg={1.5} xl={1} >
-                                <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleNameClick(e) }}>sreedhar</mui.Typography>
+                        <mui.Grid container spacing={1} sx={{ width: '100%', }}>
+                            <mui.Grid item xs={8} sm={8} md={8} lg={8} xl={8} >
+                                <mui.Typography sx={{ fontSize: "17px", cursor: "pointer", textAlign: "left" }} onClick={(e: any) => { handleNameClick(e) }}>Sreedhar</mui.Typography>
                             </mui.Grid>
-                            <mui.Grid item xs={1.5} sm={3} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }}>
+                            <mui.Grid item xs={4} sm={4} md={4} lg={4} xl={4} >
+                                <mui.Stack direction={"row"} justifyContent={"space-evenly"} alignItems={"center"}>
+                                    <mui.Typography sx={{ fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleAboutMeClick(e) }}>ABOUT ME</mui.Typography>
+                                    <mui.Typography sx={{ fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleExperienceClick(e) }}>EXPERIENCE</mui.Typography>
+                                    <mui.Typography sx={{ fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleProjectClick(e) }}>PROJECT</mui.Typography>
+                                    <mui.Typography sx={{ fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleContactClick(e) }}>CONTACTS</mui.Typography>
+                                </mui.Stack>
+                            </mui.Grid>
+                            {/* <mui.Grid item xs={1.5} sm={3} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }}>
                                 <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleAboutMeClick(e) }}>ABOUT ME</mui.Typography>
                             </mui.Grid>
                             <mui.Grid item xs={1.5} sm={3} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }} >
@@ -167,7 +193,7 @@ function MyProfile() {
                             </mui.Grid>
                             <mui.Grid item xs={1.5} sm={2} md={2} lg={2} xl={1.5} sx={{ color: "#565594" }} >
                                 <mui.Typography sx={{ fontWeight: "bold", fontSize: "15px", cursor: "pointer" }} onClick={(e: any) => { handleContactClick(e) }}>CONTACTS</mui.Typography>
-                            </mui.Grid>
+                            </mui.Grid> */}
                         </mui.Grid>
                     )}
                 </mui.Box>
@@ -193,14 +219,37 @@ function MyProfile() {
 
                 <mui.Grid container spacing={2} sx={{
                     width: '100%',
-                    maxWidth: '1200px',
-                    mt: 6,
+                    height: "50vh",
                 }}>
-                    <mui.Grid item xs={5.5} md={5.5} lg={5.5}>
-                        <mui.Typography variant="h4" component="h1" gutterBottom fontWeight={"bold"}>
-                            Hi, I am Sreedhar, a Front End Developer
-                        </mui.Typography>
-                        <mui.Button
+                    <mui.Grid item xs={5.5} md={5.5} lg={5.5} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                        <mui.Stack direction={"column"}>
+
+                            <mui.Typography variant="h4" gutterBottom fontWeight={"bold"}>
+                                Sreedhar
+                            </mui.Typography>
+                            <mui.Typography
+                                variant="h5"
+                                component="h1"
+                                gutterBottom
+                                fontWeight="bold"
+                                sx={{ display: "flex", gap: "2px" }}
+                            >
+                                {text.split("").map((char, index) => (
+                                    <AnimatedLetter
+                                        key={index}
+                                        sx={{ animationDelay: `${index * 0.08}s` }} // Delay each letter
+                                    >
+                                        {char}
+                                    </AnimatedLetter>
+                                ))}
+                            </mui.Typography>
+                            <mui.Typography>
+                                <a href="https://www.linkedin.com/in/sreedhar-a-576041242" target="_blank">
+                                    <Linkedin size={24} className="text-blue-600 hover:text-blue-800" />
+                                </a>
+                            </mui.Typography>
+                        </mui.Stack>
+                        {/* <mui.Button
                             sx={{
                                 backgroundColor: "#565594",
                                 color: "#FFFFFF",
@@ -220,22 +269,25 @@ function MyProfile() {
                         </mui.Button>
                         <mui.Typography mt={6} color={"#565594"}>
                             <a href=" https://www.linkedin.com/in/sreedhar-a-576041242" style={{ color: "#565594", textDecoration: "none" }} > linkedin</a>
-                        </mui.Typography>
+                        </mui.Typography> */}
 
                     </mui.Grid>
-                    <mui.Grid item xs={6} md={6} display={"flex"} justifyContent={"flex-end"} mt={-6} >
-                        <mui.Card sx={{ borderRadius: "10px" }}>
+                    <mui.Grid item xs={6.5} md={6.5} display={"flex"} justifyContent={"center"} alignItems={"center"} >
+                        <mui.Card sx={{ borderRadius: "200px" }}>
                             <mui.CardMedia
                                 component="img"
                                 image={myImages.src}
                                 alt="Profile Image"
                                 height={300}
+
                             />
+
                         </mui.Card>
                     </mui.Grid>
                 </mui.Grid>
+
                 <mui.Grid ref={backgroundRef}> </mui.Grid>
-                <mui.Grid container spacing={2} sx={{ width: '100%', maxWidth: '1200px', mt: 10 }} >
+                <mui.Grid container spacing={2} sx={{ width: '100%', maxWidth: '1200px' }} >
                     <mui.Grid item xs={12} md={8} >
                         <mui.Stack spacing={3} flexDirection={"column"}  >
                             <mui.Typography color={"#191D26"} fontWeight={"bold"}>— MY BACKGROUND</mui.Typography>
