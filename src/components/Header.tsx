@@ -2,7 +2,6 @@
 import * as mui from "@mui/material";
 
 function Header() {
-
     return (
         <>
             <mui.Grid container spacing={0}>
